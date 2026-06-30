@@ -39,3 +39,8 @@ test('cta not in approved overlays is an error', () => {
   const { errors } = validateProducts([bad], approved);
   assert.ok(errors.some((e) => e.includes('cta')));
 });
+
+test('non-array input is an error, not a crash', () => {
+  const { errors } = validateProducts(null, approved);
+  assert.ok(errors.some((e) => e.includes('products must be an array')));
+});

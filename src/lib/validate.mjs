@@ -4,6 +4,8 @@
 export const REQUIRED_FIELDS = ['id', 'title', 'category', 'productUrl', 'sourceImagePaths', 'trustBadges', 'conditionNotes', 'cta'];
 
 export function validateProducts(products, approvedOverlays) {
+  if (!Array.isArray(products)) return { errors: ['products must be an array'], warnings: [] };
+
   const errors = [];
   const warnings = [];
 

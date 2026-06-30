@@ -11,10 +11,13 @@ const approved = new Set([...overlays.trustOverlays, ...overlays.valueOverlays, 
 
 const { errors, warnings } = validateProducts(products, approved);
 
+// On-disk asset checks are a CLI concern only — keep them out of the pure
+// validateProducts() return value.
+const fileWarnings = [];
 for (const p of products) {
   for (const imgPath of p.sourceImagePaths ?? []) {
     if (!existsSync(join(ROOT, imgPath))) {
-      warnings.push(`${p.id}: sample image not generated yet: ${imgPath} (run npm run demo)`);
+      fileWarnings.push(`${p.id}: sample image not generated yet: ${imgPath} (run npm run demo)`);
     }
   }
 }
@@ -28,6 +31,11 @@ if (errors.length) {
 if (warnings.length) {
   console.log(`Warnings (${warnings.length}):`);
   for (const w of warnings) console.log(`  - ${w}`);
+  console.log('');
+}
+if (fileWarnings.length) {
+  console.log(`Sample image checks (${fileWarnings.length}):`);
+  for (const w of fileWarnings) console.log(`  - ${w}`);
   console.log('');
 }
 if (!errors.length) console.log('Manifest is structurally valid.');

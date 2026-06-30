@@ -64,6 +64,8 @@ npm run render      # Creatomate: render square + vertical mp4s (needs a public 
 > image URL** per product (set `imageUrl` in `data/products.json`). Host your processed
 > images, then point at them.
 
+`npm run payloads` writes starter JSON to `assets/exports/` as a human-readable reference; `npm run render` builds its own payloads inline and does not read these files.
+
 ## Architecture
 
 - `src/lib/` — pure, tested logic: `validate.mjs`, `payload.mjs`, `load.mjs`.

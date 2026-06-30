@@ -24,7 +24,7 @@ export function buildDemoProducts(products) {
     sourceImage: rel(`assets/sample/${p.id}-source.svg`),
     cleanImage: rel(`assets/sample/${p.id}-clean.svg`),
     storyboard: [
-      { scene: 1, headline: p.title.split('—')[0].trim(), note: 'Product reveal' },
+      { scene: 1, headline: p.title.split('—')[0].trim().slice(0, 80), note: 'Product reveal' },
       { scene: 2, headline: p.trustBadges.join(' · '), price: p.priceText ?? '', note: 'Trust + value' },
       { scene: 3, brand: '', cta: p.cta, note: 'End card' },
     ],
@@ -52,6 +52,7 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const a = html.indexOf(start);
   const b = html.indexOf(end);
   if (a === -1 || b === -1) { console.error('demo-data markers missing in index.html'); process.exit(1); }
+  if (b <= a) { console.error('demo-data markers are out of order in index.html'); process.exit(1); }
   writeFileSync(htmlPath, html.slice(0, a + start.length) + '\n' + json + '\n' + html.slice(b));
   console.log(`Built demo gallery for ${demoProducts.length} product(s).`);
 }

@@ -15,6 +15,7 @@ const SHAPES = {
   audio: '<rect x="210" y="150" width="180" height="340" rx="22" fill="#c8ccd6"/><circle cx="300" cy="260" r="55" fill="#6d7484"/><circle cx="300" cy="380" r="40" fill="#6d7484"/>',
 };
 const shapeFor = (cat) => SHAPES[cat] ?? SHAPES.home;
+const escXml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 function svg(product, clean) {
   const bg = clean
@@ -24,7 +25,7 @@ function svg(product, clean) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
 ${bg}
 ${shapeFor(product.category)}
-<text x="300" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#1c2528">${product.id}</text>
+<text x="300" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#1c2528">${escXml(product.id)}</text>
 <text x="300" y="572" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#5a6568">${label}</text>
 </svg>
 `;

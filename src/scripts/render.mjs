@@ -14,7 +14,7 @@ if (!KEY) {
   process.exit(1);
 }
 const API = 'https://api.creatomate.com/v2/renders';
-const HEADERS = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${KEY}`, 'User-Agent': 'curl/8.9.1' };
+const HEADERS = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${KEY}`, 'User-Agent': 'pmax-creative-automation/1.0' };
 const BRAND = (loadBrand().name || 'Brand');
 
 const INK = 'rgba(28,37,40,1)', ACCENT = 'rgba(14,124,102,1)', WHITE = 'rgba(255,255,255,1)', END_BG = 'rgba(27,28,30,1)';
@@ -71,12 +71,33 @@ for (const product of products) {
 
 mkdirSync(join(ROOT, 'assets/processed/videos'), { recursive: true });
 const pending = new Map(jobs.map((j) => [j, null]));
+const deadline = Date.now() + 10 * 60 * 1000;
 while (pending.size) {
+  if (Date.now() > deadline) {
+    console.error('Timeout waiting for renders:', [...pending.keys()].map((j) => j.renderId));
+    break;
+  }
   await new Promise((r) => setTimeout(r, 10000));
   for (const job of [...pending.keys()]) {
-    const st = await (await fetch(`${API}/${job.renderId}`, { headers: HEADERS })).json();
+    const pollRes = await fetch(`${API}/${job.renderId}`, { headers: HEADERS });
+    if (!pollRes.ok) {
+      console.error(`${job.id}-${job.fmt}: poll HTTP ${pollRes.status}`);
+      continue; // leave it pending for the next cycle
+    }
+    const st = await pollRes.json();
     if (st.status === 'succeeded') {
-      writeFileSync(join(ROOT, 'assets/processed/videos', `${job.id}-${job.fmt}.mp4`), Buffer.from(await (await fetch(st.url)).arrayBuffer()));
+      if (!st.url) {
+        console.error(`${job.id}-${job.fmt}: render succeeded but no download url`);
+        pending.delete(job);
+        continue;
+      }
+      const dl = await fetch(st.url);
+      if (!dl.ok) {
+        console.error(`${job.id}-${job.fmt}: download HTTP ${dl.status}`);
+        pending.delete(job);
+        continue;
+      }
+      writeFileSync(join(ROOT, 'assets/processed/videos', `${job.id}-${job.fmt}.mp4`), Buffer.from(await dl.arrayBuffer()));
       console.log(`saved ${job.id}-${job.fmt}.mp4 (${st.width}x${st.height})`);
       pending.delete(job);
     } else if (st.status === 'failed') {

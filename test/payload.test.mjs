@@ -24,3 +24,9 @@ test('payload carries creative-rules version + meta', () => {
   assert.equal(out.meta.productId, 'nw-001');
   assert.equal(out.format, 'vertical');
 });
+
+test('empty trustBadges falls back gracefully', () => {
+  const out = buildPayload({ ...product, trustBadges: [] }, 'square', 'img.svg', rules);
+  assert.equal(out.modifications['trust-overlay-1'], 'Certified Refurbished');
+  assert.equal(out.modifications['trust-overlay-2'], '');
+});
