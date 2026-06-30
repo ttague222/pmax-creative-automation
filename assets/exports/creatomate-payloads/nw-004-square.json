@@ -1,0 +1,23 @@
+{
+  "format": "square",
+  "templateId": "REPLACE_WITH_CREATOMATE_SQUARE_TEMPLATE_ID",
+  "modifications": {
+    "product-title": "Northwind FlexBreeze Indoor & Outdoor Fan, Portable, Cordless — Certified Refurbished",
+    "product-image": "assets/sample/nw-004-clean.svg",
+    "trust-overlay-1": "Certified Refurbished",
+    "trust-overlay-2": "Warranty Included",
+    "price-text": "$79.99",
+    "cta-text": "Shop Certified Refurbished"
+  },
+  "meta": {
+    "productId": "nw-004",
+    "category": "home",
+    "productUrl": "https://example-store.test/products/northwind-flexbreeze-fan",
+    "conditionNotes": "Certified refurbished; keep use-case visuals tasteful and accurate.",
+    "creativeRulesVersion": 1,
+    "videoConstraints": {
+      "maxDurationSeconds": 12,
+      "motionStyle": "restrained — gentle zoom/pan and simple fades only"
+    }
+  }
+}

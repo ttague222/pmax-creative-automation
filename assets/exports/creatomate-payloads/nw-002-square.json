@@ -1,0 +1,23 @@
+{
+  "format": "square",
+  "templateId": "REPLACE_WITH_CREATOMATE_SQUARE_TEMPLATE_ID",
+  "modifications": {
+    "product-title": "Northwind LuxeBrew Espresso & Coffee Machine — Certified Refurbished",
+    "product-image": "assets/sample/nw-002-clean.svg",
+    "trust-overlay-1": "Certified Refurbished",
+    "trust-overlay-2": "Warranty Included",
+    "price-text": "$379.99",
+    "cta-text": "Shop Certified Refurbished"
+  },
+  "meta": {
+    "productId": "nw-002",
+    "category": "kitchen",
+    "productUrl": "https://example-store.test/products/northwind-luxebrew-espresso",
+    "conditionNotes": "Certified refurbished; do not imply accessories beyond what is shown.",
+    "creativeRulesVersion": 1,
+    "videoConstraints": {
+      "maxDurationSeconds": 12,
+      "motionStyle": "restrained — gentle zoom/pan and simple fades only"
+    }
+  }
+}

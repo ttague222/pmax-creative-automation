@@ -1,0 +1,23 @@
+{
+  "format": "vertical",
+  "templateId": "REPLACE_WITH_CREATOMATE_VERTICAL_TEMPLATE_ID",
+  "modifications": {
+    "product-title": "Northwind AirPure 1400 Air Purifier, 1400 sq. ft., 5-Year HEPA Filter — Certified Refurbished",
+    "product-image": "assets/sample/nw-001-clean.svg",
+    "trust-overlay-1": "Certified Refurbished",
+    "trust-overlay-2": "Warranty Included",
+    "price-text": "$159.99",
+    "cta-text": "Shop Certified Refurbished"
+  },
+  "meta": {
+    "productId": "nw-001",
+    "category": "home",
+    "productUrl": "https://example-store.test/products/northwind-airpure-1400",
+    "conditionNotes": "Certified refurbished; keep condition messaging generic and truthful.",
+    "creativeRulesVersion": 1,
+    "videoConstraints": {
+      "maxDurationSeconds": 12,
+      "motionStyle": "restrained — gentle zoom/pan and simple fades only"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "format": "square",
+  "templateId": "REPLACE_WITH_CREATOMATE_SQUARE_TEMPLATE_ID",
+  "modifications": {
+    "product-title": "Northwind BoomBox 310 Portable Bluetooth Speaker — Certified Refurbished",
+    "product-image": "assets/sample/nw-003-clean.svg",
+    "trust-overlay-1": "Certified Refurbished",
+    "trust-overlay-2": "Warranty Included",
+    "price-text": "$448.99",
+    "cta-text": "Shop Certified Refurbished"
+  },
+  "meta": {
+    "productId": "nw-003",
+    "category": "audio",
+    "productUrl": "https://example-store.test/products/northwind-boombox-310",
+    "conditionNotes": "Certified refurbished with warranty; keep messaging to trust and portability.",
+    "creativeRulesVersion": 1,
+    "videoConstraints": {
+      "maxDurationSeconds": 12,
+      "motionStyle": "restrained — gentle zoom/pan and simple fades only"
+    }
+  }
+}
