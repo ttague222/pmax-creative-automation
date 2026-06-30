@@ -1,0 +1,27 @@
+{
+  "$comment": "Machine-readable creative honesty rules. Embedded in every generated render payload so renders carry their constraints. Generalize or tighten these for your own products.",
+  "version": 1,
+  "image": {
+    "doNotAlterProductAppearance": true,
+    "doNotImplyUnincludedAccessories": true,
+    "doNotHideMaterialConditionCues": true,
+    "keepBrandDetailsLegible": true,
+    "allowedEdits": ["background removal", "background replacement (simple, neutral, or restrained lifestyle)", "lighting and color correction that does not change product condition", "cropping and framing"],
+    "forbiddenEdits": ["retouching scratches, dents, or wear off the product itself", "compositing in accessories, packaging, or items not sold with the unit", "swapping product color or model variants"],
+    "backgroundStyle": "simple, premium, uncluttered; product is always the focus"
+  },
+  "video": {
+    "maxDurationSeconds": 12,
+    "minDurationSeconds": 6,
+    "motionStyle": "restrained — gentle zoom/pan and simple fades only",
+    "messagingScope": "trust and value only (refurbished certification, warranty, price)",
+    "overlaySource": "config/overlay-copy.json — approved phrases only",
+    "endCard": "brand + CTA, no condition claims beyond the approved overlays"
+  },
+  "copy": {
+    "approvedOverlaysOnly": true,
+    "noSuperlativesAboutCondition": true,
+    "noLikeNewClaims": "Never claim 'like new' or 'flawless' — use 'Certified Refurbished'.",
+    "priceTextIsDemoOnly": "priceText in manifests is for demo mockups; verify live price before any real campaign."
+  }
+}

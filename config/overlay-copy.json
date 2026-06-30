@@ -1,0 +1,6 @@
+{
+  "$comment": "Approved short overlay phrases for image and video creative. Only phrases listed here may appear as overlays. Add new phrases here (not inline in templates) so approval stays centralized.",
+  "trustOverlays": ["Certified Refurbished", "Warranty Included", "Authorized Seller", "Fully Tested"],
+  "valueOverlays": ["Free Shipping", "Save vs. New"],
+  "ctaOverlays": ["Shop Certified Refurbished", "Shop Now"]
+}

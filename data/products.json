@@ -1,0 +1,58 @@
+{
+  "$comment": "Fictional sample catalog for the public demo. Brand, products, prices, and URLs are invented. Replace this file with your own product manifest for real campaigns.",
+  "brand": "Northwind",
+  "products": [
+    {
+      "id": "nw-001",
+      "title": "Northwind AirPure 1400 Air Purifier, 1400 sq. ft., 5-Year HEPA Filter — Certified Refurbished",
+      "category": "home",
+      "productUrl": "https://example-store.test/products/northwind-airpure-1400",
+      "sourceImagePaths": ["assets/sample/nw-001-source.svg"],
+      "trustBadges": ["Certified Refurbished", "Warranty Included"],
+      "conditionNotes": "Certified refurbished; keep condition messaging generic and truthful.",
+      "cta": "Shop Certified Refurbished",
+      "priceText": "$159.99",
+      "regularPriceText": "$329.99",
+      "warrantyText": "90 Day Warranty"
+    },
+    {
+      "id": "nw-002",
+      "title": "Northwind LuxeBrew Espresso & Coffee Machine — Certified Refurbished",
+      "category": "kitchen",
+      "productUrl": "https://example-store.test/products/northwind-luxebrew-espresso",
+      "sourceImagePaths": ["assets/sample/nw-002-source.svg"],
+      "trustBadges": ["Certified Refurbished", "Warranty Included"],
+      "conditionNotes": "Certified refurbished; do not imply accessories beyond what is shown.",
+      "cta": "Shop Certified Refurbished",
+      "priceText": "$379.99",
+      "regularPriceText": "$549.95",
+      "warrantyText": "90 Day Warranty"
+    },
+    {
+      "id": "nw-003",
+      "title": "Northwind BoomBox 310 Portable Bluetooth Speaker — Certified Refurbished",
+      "category": "audio",
+      "productUrl": "https://example-store.test/products/northwind-boombox-310",
+      "sourceImagePaths": ["assets/sample/nw-003-source.svg"],
+      "trustBadges": ["Certified Refurbished", "Warranty Included"],
+      "conditionNotes": "Certified refurbished with warranty; keep messaging to trust and portability.",
+      "cta": "Shop Certified Refurbished",
+      "priceText": "$448.99",
+      "regularPriceText": "$499.95",
+      "warrantyText": "90 Day Warranty"
+    },
+    {
+      "id": "nw-004",
+      "title": "Northwind FlexBreeze Indoor & Outdoor Fan, Portable, Cordless — Certified Refurbished",
+      "category": "home",
+      "productUrl": "https://example-store.test/products/northwind-flexbreeze-fan",
+      "sourceImagePaths": ["assets/sample/nw-004-source.svg"],
+      "trustBadges": ["Certified Refurbished", "Warranty Included"],
+      "conditionNotes": "Certified refurbished; keep use-case visuals tasteful and accurate.",
+      "cta": "Shop Certified Refurbished",
+      "priceText": "$79.99",
+      "regularPriceText": "$139.99",
+      "warrantyText": "90 Day Warranty"
+    }
+  ]
+}
