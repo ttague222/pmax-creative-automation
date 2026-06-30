@@ -16,8 +16,8 @@
       "priceText": "$159.99",
       "regularPriceText": "$329.99",
       "warrantyText": "90 Day Warranty",
-      "sourceImage": "../../assets/sample/nw-001-source.svg",
-      "cleanImage": "../../assets/sample/nw-001-clean.svg",
+      "sourceImage": "../../assets/sample/nw-001-source.jpg",
+      "cleanImage": "../../assets/sample/nw-001-clean.png",
       "storyboard": [
         {
           "scene": 1,
@@ -52,8 +52,8 @@
       "priceText": "$379.99",
       "regularPriceText": "$549.95",
       "warrantyText": "90 Day Warranty",
-      "sourceImage": "../../assets/sample/nw-002-source.svg",
-      "cleanImage": "../../assets/sample/nw-002-clean.svg",
+      "sourceImage": "../../assets/sample/nw-002-source.jpg",
+      "cleanImage": "../../assets/sample/nw-002-clean.png",
       "storyboard": [
         {
           "scene": 1,
@@ -88,8 +88,8 @@
       "priceText": "$448.99",
       "regularPriceText": "$499.95",
       "warrantyText": "90 Day Warranty",
-      "sourceImage": "../../assets/sample/nw-003-source.svg",
-      "cleanImage": "../../assets/sample/nw-003-clean.svg",
+      "sourceImage": "../../assets/sample/nw-003-source.jpg",
+      "cleanImage": "../../assets/sample/nw-003-clean.png",
       "storyboard": [
         {
           "scene": 1,
@@ -124,8 +124,8 @@
       "priceText": "$79.99",
       "regularPriceText": "$139.99",
       "warrantyText": "90 Day Warranty",
-      "sourceImage": "../../assets/sample/nw-004-source.svg",
-      "cleanImage": "../../assets/sample/nw-004-clean.svg",
+      "sourceImage": "../../assets/sample/nw-004-source.jpg",
+      "cleanImage": "../../assets/sample/nw-004-clean.png",
       "storyboard": [
         {
           "scene": 1,

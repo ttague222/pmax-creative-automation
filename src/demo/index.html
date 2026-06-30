@@ -16,7 +16,8 @@
   .card h2 { font-size:16px; margin:0 0 10px; }
   .ba { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
   .ba figure { margin:0; }
-  .ba img { width:100%; border-radius:10px; border:1px solid var(--line); display:block; }
+  .ba img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:10px; border:1px solid var(--line); display:block; }
+  .ba figure.clean img { object-fit:contain; background:#f4f6f6; }
   .ba figcaption { font-size:12px; color:var(--muted); margin-top:6px; }
   .badges span { display:inline-block; background:var(--accent); color:#fff; font-size:12px; font-weight:700; padding:3px 8px; border-radius:6px; margin:8px 6px 0 0; }
   .price { font-size:18px; font-weight:800; margin-top:10px; }
@@ -32,7 +33,7 @@
   <div class="wrap">
     <h1>PMAX Creative Automation</h1>
     <div>Performance Max-ready image &amp; video creative, generated from a product manifest.</div>
-    <span class="mode">MOCK MODE · sample data · simulated cleanup</span>
+    <span class="mode">MOCK MODE · sample data</span>
   </div>
 </header>
 <main class="wrap" id="gallery"></main>
@@ -57,8 +58,8 @@
       "priceText": "$159.99",
       "regularPriceText": "$329.99",
       "warrantyText": "90 Day Warranty",
-      "sourceImage": "../../assets/sample/nw-001-source.svg",
-      "cleanImage": "../../assets/sample/nw-001-clean.svg",
+      "sourceImage": "../../assets/sample/nw-001-source.jpg",
+      "cleanImage": "../../assets/sample/nw-001-clean.png",
       "storyboard": [
         {
           "scene": 1,
@@ -93,8 +94,8 @@
       "priceText": "$379.99",
       "regularPriceText": "$549.95",
       "warrantyText": "90 Day Warranty",
-      "sourceImage": "../../assets/sample/nw-002-source.svg",
-      "cleanImage": "../../assets/sample/nw-002-clean.svg",
+      "sourceImage": "../../assets/sample/nw-002-source.jpg",
+      "cleanImage": "../../assets/sample/nw-002-clean.png",
       "storyboard": [
         {
           "scene": 1,
@@ -129,8 +130,8 @@
       "priceText": "$448.99",
       "regularPriceText": "$499.95",
       "warrantyText": "90 Day Warranty",
-      "sourceImage": "../../assets/sample/nw-003-source.svg",
-      "cleanImage": "../../assets/sample/nw-003-clean.svg",
+      "sourceImage": "../../assets/sample/nw-003-source.jpg",
+      "cleanImage": "../../assets/sample/nw-003-clean.png",
       "storyboard": [
         {
           "scene": 1,
@@ -165,8 +166,8 @@
       "priceText": "$79.99",
       "regularPriceText": "$139.99",
       "warrantyText": "90 Day Warranty",
-      "sourceImage": "../../assets/sample/nw-004-source.svg",
-      "cleanImage": "../../assets/sample/nw-004-clean.svg",
+      "sourceImage": "../../assets/sample/nw-004-source.jpg",
+      "cleanImage": "../../assets/sample/nw-004-clean.png",
       "storyboard": [
         {
           "scene": 1,
@@ -212,8 +213,9 @@
     const ba = document.createElement('div');
     ba.className = 'ba';
 
-    function makeFigure(src, altText, captionText) {
+    function makeFigure(src, altText, captionText, className) {
       const fig = document.createElement('figure');
+      if (className) fig.className = className;
       const img = document.createElement('img');
       img.src = src;
       img.alt = altText;
@@ -225,7 +227,7 @@
     }
 
     ba.appendChild(makeFigure(p.sourceImage, p.id + ' source', 'Source (as uploaded)'));
-    ba.appendChild(makeFigure(p.cleanImage, p.id + ' cleaned', 'Standardized (simulated cleanup)'));
+    ba.appendChild(makeFigure(p.cleanImage, p.id + ' cleaned', 'Standardized (background removed)', 'clean'));
     card.appendChild(ba);
 
     // Trust badges

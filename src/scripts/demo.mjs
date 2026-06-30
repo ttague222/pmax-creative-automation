@@ -21,8 +21,8 @@ export function buildDemoProducts(products) {
     priceText: p.priceText ?? null,
     regularPriceText: p.regularPriceText ?? null,
     warrantyText: p.warrantyText ?? null,
-    sourceImage: rel(`assets/sample/${p.id}-source.svg`),
-    cleanImage: rel(`assets/sample/${p.id}-clean.svg`),
+    sourceImage: rel(`assets/sample/${p.id}-source.jpg`),
+    cleanImage: rel(`assets/sample/${p.id}-clean.png`),
     storyboard: [
       { scene: 1, headline: p.title.split('—')[0].trim().slice(0, 80), note: 'Product reveal' },
       { scene: 2, headline: p.trustBadges.join(' · '), price: p.priceText ?? '', note: 'Trust + value' },

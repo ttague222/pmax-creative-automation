@@ -17,7 +17,7 @@ const fileWarnings = [];
 for (const p of products) {
   for (const imgPath of p.sourceImagePaths ?? []) {
     if (!existsSync(join(ROOT, imgPath))) {
-      fileWarnings.push(`${p.id}: sample image not generated yet: ${imgPath} (run npm run demo)`);
+      fileWarnings.push(`${p.id}: sample image missing on disk: ${imgPath}`);
     }
   }
 }

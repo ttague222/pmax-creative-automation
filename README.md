@@ -26,19 +26,20 @@ data/products.json ──▶ validate ──▶ image cleanup ──▶ video re
                                      (Photoroom)        (Creatomate)
 ```
 
-It ships with a **fictional sample catalog** (the "Northwind" brand) and self-contained
-SVG sample images, so you can see the whole flow before wiring anything real.
+It ships with a **fictional sample catalog** (the "Northwind" brand) and bundled sample
+product images (with real background-removed before/after), so you can see the whole flow
+before wiring anything real.
 
 ## 30-second quickstart (mock mode — no keys)
 
 Requires Node 18+. No `npm install` needed (zero runtime dependencies).
 
 ```sh
-npm run demo        # generates sample images + builds the gallery
+npm run demo        # builds the gallery from the bundled sample images
 ```
 
-Then open `src/demo/index.html` in a browser. You'll see, per product, a simulated
-before/after image cleanup, trust badges, price, and a 3-scene video storyboard.
+Then open `src/demo/index.html` in a browser. You'll see, per product, a before/after
+background cleanup, trust badges, price, and a 3-scene video storyboard.
 
 ```sh
 npm run validate    # check the product manifest
@@ -69,7 +70,7 @@ npm run render      # Creatomate: render square + vertical mp4s (needs a public 
 ## Architecture
 
 - `src/lib/` — pure, tested logic: `validate.mjs`, `payload.mjs`, `load.mjs`.
-- `src/scripts/` — thin CLIs: `validate`, `gen-sample-images`, `demo` (mock),
+- `src/scripts/` — thin CLIs: `validate`, `demo` (mock),
   `payloads`, `images` + `render` (real, key-gated).
 - `config/` — `brand.json`, `creative-rules.json`, `overlay-copy.json`.
 - `src/demo/` — static gallery (`index.html` + generated `demo-data.json`).

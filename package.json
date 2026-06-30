@@ -7,7 +7,7 @@
   "keywords": ["pmax", "performance-max", "google-ads", "creative-automation", "shopify", "ad-creative", "photoroom", "creatomate"],
   "scripts": {
     "validate": "node src/scripts/validate.mjs",
-    "demo": "node src/scripts/gen-sample-images.mjs && node src/scripts/demo.mjs",
+    "demo": "node src/scripts/demo.mjs",
     "payloads": "node src/scripts/payloads.mjs",
     "images": "node src/scripts/images.mjs",
     "render": "node src/scripts/render.mjs",
