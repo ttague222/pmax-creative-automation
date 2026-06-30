@@ -23,6 +23,7 @@ export function buildDemoProducts(products) {
     warrantyText: p.warrantyText ?? null,
     sourceImage: rel(`assets/sample/${p.id}-source.jpg`),
     cleanImage: rel(`assets/sample/${p.id}-clean.png`),
+    lifestyleImage: rel(`assets/sample/${p.id}-lifestyle.png`),
     storyboard: [
       { scene: 1, headline: p.title.split('—')[0].trim().slice(0, 80), note: 'Product reveal' },
       { scene: 2, headline: p.trustBadges.join(' · '), price: p.priceText ?? '', note: 'Trust + value' },

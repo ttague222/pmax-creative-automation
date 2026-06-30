@@ -14,7 +14,7 @@
   .wrap { max-width: 1040px; margin: 0 auto; padding: 20px; }
   .card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px; margin-bottom:18px; }
   .card h2 { font-size:16px; margin:0 0 10px; }
-  .ba { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .ba { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
   .ba figure { margin:0; }
   .ba img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:10px; border:1px solid var(--line); display:block; }
   .ba figure.clean img { object-fit:contain; background:#f4f6f6; }
@@ -60,6 +60,7 @@
       "warrantyText": "90 Day Warranty",
       "sourceImage": "../../assets/sample/nw-001-source.jpg",
       "cleanImage": "../../assets/sample/nw-001-clean.png",
+      "lifestyleImage": "../../assets/sample/nw-001-lifestyle.png",
       "storyboard": [
         {
           "scene": 1,
@@ -96,6 +97,7 @@
       "warrantyText": "90 Day Warranty",
       "sourceImage": "../../assets/sample/nw-002-source.jpg",
       "cleanImage": "../../assets/sample/nw-002-clean.png",
+      "lifestyleImage": "../../assets/sample/nw-002-lifestyle.png",
       "storyboard": [
         {
           "scene": 1,
@@ -132,6 +134,7 @@
       "warrantyText": "90 Day Warranty",
       "sourceImage": "../../assets/sample/nw-003-source.jpg",
       "cleanImage": "../../assets/sample/nw-003-clean.png",
+      "lifestyleImage": "../../assets/sample/nw-003-lifestyle.png",
       "storyboard": [
         {
           "scene": 1,
@@ -168,6 +171,7 @@
       "warrantyText": "90 Day Warranty",
       "sourceImage": "../../assets/sample/nw-004-source.jpg",
       "cleanImage": "../../assets/sample/nw-004-clean.png",
+      "lifestyleImage": "../../assets/sample/nw-004-lifestyle.png",
       "storyboard": [
         {
           "scene": 1,
@@ -228,6 +232,7 @@
 
     ba.appendChild(makeFigure(p.sourceImage, p.id + ' source', 'Source (as uploaded)'));
     ba.appendChild(makeFigure(p.cleanImage, p.id + ' cleaned', 'Standardized (background removed)', 'clean'));
+    if (p.lifestyleImage) ba.appendChild(makeFigure(p.lifestyleImage, p.id + ' lifestyle', 'Lifestyle scene (generated)'));
     card.appendChild(ba);
 
     // Trust badges

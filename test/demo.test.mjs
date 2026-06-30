@@ -13,6 +13,7 @@ test('buildDemoProducts wires before/after sample image paths', () => {
   const out = buildDemoProducts(products);
   assert.equal(out[0].sourceImage, '../../assets/sample/nw-001-source.jpg');
   assert.equal(out[0].cleanImage, '../../assets/sample/nw-001-clean.png');
+  assert.equal(out[0].lifestyleImage, '../../assets/sample/nw-001-lifestyle.png');
 });
 
 test('buildDemoProducts builds a 3-scene storyboard from product copy', () => {

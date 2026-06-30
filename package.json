@@ -10,6 +10,7 @@
     "demo": "node src/scripts/demo.mjs",
     "payloads": "node src/scripts/payloads.mjs",
     "images": "node src/scripts/images.mjs",
+    "scenes": "node src/scripts/scenes.mjs",
     "render": "node src/scripts/render.mjs",
     "test": "node --test"
   }

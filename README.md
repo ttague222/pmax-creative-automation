@@ -22,13 +22,13 @@ repeatable pipeline from product data → ad-ready assets.
 ## What it does
 
 ```
-data/products.json ──▶ validate ──▶ image cleanup ──▶ video render payloads ──▶ review gallery
-                                     (Photoroom)        (Creatomate)
+data/products.json ─▶ validate ─▶ clean image ─▶ lifestyle scenes ─▶ video ─▶ review gallery
+                                  (Photoroom)     (Bria · fal)       (Creatomate)
 ```
 
 It ships with a **fictional sample catalog** (the "Northwind" brand) and bundled sample
-product images (with real background-removed before/after), so you can see the whole flow
-before wiring anything real.
+images for each product — **source → background-removed → lifestyle scene** — so you can
+see the whole flow before wiring anything real.
 
 ## 30-second quickstart (mock mode — no keys)
 
@@ -38,8 +38,8 @@ Requires Node 18+. No `npm install` needed (zero runtime dependencies).
 npm run demo        # builds the gallery from the bundled sample images
 ```
 
-Then open `src/demo/index.html` in a browser. You'll see, per product, a before/after
-background cleanup, trust badges, price, and a 3-scene video storyboard.
+Then open `src/demo/index.html` in a browser. You'll see, per product, a **source →
+cleaned → lifestyle-scene** image set, trust badges, price, and a 3-scene video storyboard.
 
 ```sh
 npm run validate    # check the product manifest
@@ -53,13 +53,19 @@ npm test            # run the unit tests
 2. Copy `.env.example` to `.env` and add your keys (or export them in your shell):
    - `PHOTOROOM_API_KEY` — https://www.photoroom.com/api
    - `CREATOMATE_API_KEY` — https://creatomate.com → Project settings → API
+   - `FAL_KEY` — https://fal.ai → dashboard → API keys (lifestyle scenes)
 3. Run the real pipeline:
 
 ```sh
 npm run images      # Photoroom: clean backgrounds → assets/processed/images/<id>-clean.png
+npm run scenes      # Bria (fal): faithful lifestyle scenes → assets/processed/scenes/<id>-lifestyle.png
 npm run payloads    # build Creatomate render payloads
 npm run render      # Creatomate: render square + vertical mp4s (needs a public imageUrl per product)
 ```
+
+> Lifestyle scenes (`npm run scenes`) keep your product pixels **faithful** — only the
+> background is regenerated — using a model trained on licensed data for commercial use.
+> Needs a public `imageUrl` per product in `data/products.json`.
 
 > Creatomate downloads image sources over HTTP, so real renders need a **public https
 > image URL** per product (set `imageUrl` in `data/products.json`). Host your processed
@@ -71,7 +77,7 @@ npm run render      # Creatomate: render square + vertical mp4s (needs a public 
 
 - `src/lib/` — pure, tested logic: `validate.mjs`, `payload.mjs`, `load.mjs`.
 - `src/scripts/` — thin CLIs: `validate`, `demo` (mock),
-  `payloads`, `images` + `render` (real, key-gated).
+  `payloads`, `images`, `scenes` + `render` (real, key-gated).
 - `config/` — `brand.json`, `creative-rules.json`, `overlay-copy.json`.
 - `src/demo/` — static gallery (`index.html` + generated `demo-data.json`).
 
