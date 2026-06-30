@@ -1,0 +1,16 @@
+{
+  "name": "pmax-creative-automation",
+  "version": "1.0.0",
+  "description": "Generate Google Performance Max-ready image and video ad creative from product data — runs in mock mode out of the box, real mode with your Photoroom + Creatomate keys.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": ["pmax", "performance-max", "google-ads", "creative-automation", "shopify", "ad-creative", "photoroom", "creatomate"],
+  "scripts": {
+    "validate": "node src/scripts/validate.mjs",
+    "demo": "node src/scripts/gen-sample-images.mjs && node src/scripts/demo.mjs",
+    "payloads": "node src/scripts/payloads.mjs",
+    "images": "node src/scripts/images.mjs",
+    "render": "node src/scripts/render.mjs",
+    "test": "node --test"
+  }
+}
