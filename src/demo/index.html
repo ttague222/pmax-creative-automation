@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PMAX Creative Automation — Demo</title>
+<style>
+  :root { --ink:#1c2528; --accent:#0e7c66; --muted:#5a6568; --line:#e3e8e8; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, Arial, sans-serif; color: var(--ink); background:#fafbfb; }
+  header { padding: 28px 20px; border-bottom:1px solid var(--line); }
+  h1 { margin:0 0 6px; font-size: 22px; }
+  .mode { display:inline-block; margin-top:8px; padding:4px 10px; border-radius:999px; background:#eef5f2; color:var(--accent); font-size:12px; font-weight:700; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 20px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px; margin-bottom:18px; }
+  .card h2 { font-size:16px; margin:0 0 10px; }
+  .ba { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .ba figure { margin:0; }
+  .ba img { width:100%; border-radius:10px; border:1px solid var(--line); display:block; }
+  .ba figcaption { font-size:12px; color:var(--muted); margin-top:6px; }
+  .badges span { display:inline-block; background:var(--accent); color:#fff; font-size:12px; font-weight:700; padding:3px 8px; border-radius:6px; margin:8px 6px 0 0; }
+  .price { font-size:18px; font-weight:800; margin-top:10px; }
+  .price s { color:var(--muted); font-weight:500; font-size:14px; margin-left:6px; }
+  .story { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px; }
+  .scene { border:1px dashed var(--line); border-radius:10px; padding:10px; font-size:13px; }
+  .scene b { display:block; font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px; }
+  footer { color:var(--muted); font-size:12px; text-align:center; padding:24px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>PMAX Creative Automation</h1>
+    <div>Performance Max-ready image &amp; video creative, generated from a product manifest.</div>
+    <span class="mode">MOCK MODE · sample data · simulated cleanup</span>
+  </div>
+</header>
+<main class="wrap" id="gallery"></main>
+<footer>Sample catalog is fictional. Add your Photoroom + Creatomate keys for real renders. — Watchlight Interactive LLC</footer>
+
+<script id="demo-data" type="application/json">
+{
+  "project": "PMAX Creative Automation",
+  "brand": "Northwind",
+  "products": [
+    {
+      "id": "nw-001",
+      "title": "Northwind AirPure 1400 Air Purifier, 1400 sq. ft., 5-Year HEPA Filter — Certified Refurbished",
+      "category": "home",
+      "productUrl": "https://example-store.test/products/northwind-airpure-1400",
+      "trustBadges": [
+        "Certified Refurbished",
+        "Warranty Included"
+      ],
+      "conditionNotes": "Certified refurbished; keep condition messaging generic and truthful.",
+      "cta": "Shop Certified Refurbished",
+      "priceText": "$159.99",
+      "regularPriceText": "$329.99",
+      "warrantyText": "90 Day Warranty",
+      "sourceImage": "../../assets/sample/nw-001-source.svg",
+      "cleanImage": "../../assets/sample/nw-001-clean.svg",
+      "storyboard": [
+        {
+          "scene": 1,
+          "headline": "Northwind AirPure 1400 Air Purifier, 1400 sq. ft., 5-Year HEPA Filter",
+          "note": "Product reveal"
+        },
+        {
+          "scene": 2,
+          "headline": "Certified Refurbished · Warranty Included",
+          "price": "$159.99",
+          "note": "Trust + value"
+        },
+        {
+          "scene": 3,
+          "brand": "Northwind",
+          "cta": "Shop Certified Refurbished",
+          "note": "End card"
+        }
+      ]
+    },
+    {
+      "id": "nw-002",
+      "title": "Northwind LuxeBrew Espresso & Coffee Machine — Certified Refurbished",
+      "category": "kitchen",
+      "productUrl": "https://example-store.test/products/northwind-luxebrew-espresso",
+      "trustBadges": [
+        "Certified Refurbished",
+        "Warranty Included"
+      ],
+      "conditionNotes": "Certified refurbished; do not imply accessories beyond what is shown.",
+      "cta": "Shop Certified Refurbished",
+      "priceText": "$379.99",
+      "regularPriceText": "$549.95",
+      "warrantyText": "90 Day Warranty",
+      "sourceImage": "../../assets/sample/nw-002-source.svg",
+      "cleanImage": "../../assets/sample/nw-002-clean.svg",
+      "storyboard": [
+        {
+          "scene": 1,
+          "headline": "Northwind LuxeBrew Espresso & Coffee Machine",
+          "note": "Product reveal"
+        },
+        {
+          "scene": 2,
+          "headline": "Certified Refurbished · Warranty Included",
+          "price": "$379.99",
+          "note": "Trust + value"
+        },
+        {
+          "scene": 3,
+          "brand": "Northwind",
+          "cta": "Shop Certified Refurbished",
+          "note": "End card"
+        }
+      ]
+    },
+    {
+      "id": "nw-003",
+      "title": "Northwind BoomBox 310 Portable Bluetooth Speaker — Certified Refurbished",
+      "category": "audio",
+      "productUrl": "https://example-store.test/products/northwind-boombox-310",
+      "trustBadges": [
+        "Certified Refurbished",
+        "Warranty Included"
+      ],
+      "conditionNotes": "Certified refurbished with warranty; keep messaging to trust and portability.",
+      "cta": "Shop Certified Refurbished",
+      "priceText": "$448.99",
+      "regularPriceText": "$499.95",
+      "warrantyText": "90 Day Warranty",
+      "sourceImage": "../../assets/sample/nw-003-source.svg",
+      "cleanImage": "../../assets/sample/nw-003-clean.svg",
+      "storyboard": [
+        {
+          "scene": 1,
+          "headline": "Northwind BoomBox 310 Portable Bluetooth Speaker",
+          "note": "Product reveal"
+        },
+        {
+          "scene": 2,
+          "headline": "Certified Refurbished · Warranty Included",
+          "price": "$448.99",
+          "note": "Trust + value"
+        },
+        {
+          "scene": 3,
+          "brand": "Northwind",
+          "cta": "Shop Certified Refurbished",
+          "note": "End card"
+        }
+      ]
+    },
+    {
+      "id": "nw-004",
+      "title": "Northwind FlexBreeze Indoor & Outdoor Fan, Portable, Cordless — Certified Refurbished",
+      "category": "home",
+      "productUrl": "https://example-store.test/products/northwind-flexbreeze-fan",
+      "trustBadges": [
+        "Certified Refurbished",
+        "Warranty Included"
+      ],
+      "conditionNotes": "Certified refurbished; keep use-case visuals tasteful and accurate.",
+      "cta": "Shop Certified Refurbished",
+      "priceText": "$79.99",
+      "regularPriceText": "$139.99",
+      "warrantyText": "90 Day Warranty",
+      "sourceImage": "../../assets/sample/nw-004-source.svg",
+      "cleanImage": "../../assets/sample/nw-004-clean.svg",
+      "storyboard": [
+        {
+          "scene": 1,
+          "headline": "Northwind FlexBreeze Indoor & Outdoor Fan, Portable, Cordless",
+          "note": "Product reveal"
+        },
+        {
+          "scene": 2,
+          "headline": "Certified Refurbished · Warranty Included",
+          "price": "$79.99",
+          "note": "Trust + value"
+        },
+        {
+          "scene": 3,
+          "brand": "Northwind",
+          "cta": "Shop Certified Refurbished",
+          "note": "End card"
+        }
+      ]
+    }
+  ]
+}
+</script><!-- /demo-data -->
+
+<script>
+  // Safe DOM construction: all user-facing data is set via textContent or
+  // typed DOM attributes — no innerHTML with interpolated values.
+  // innerHTML is used only for static structural markup with no data.
+  const data = JSON.parse(document.getElementById('demo-data').textContent);
+  const gallery = document.getElementById('gallery');
+
+  for (const p of data.products) {
+    // Card container
+    const card = document.createElement('section');
+    card.className = 'card';
+
+    // Title
+    const h2 = document.createElement('h2');
+    h2.textContent = p.title;
+    card.appendChild(h2);
+
+    // Before / after images
+    const ba = document.createElement('div');
+    ba.className = 'ba';
+
+    function makeFigure(src, altText, captionText) {
+      const fig = document.createElement('figure');
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = altText;
+      const cap = document.createElement('figcaption');
+      cap.textContent = captionText;
+      fig.appendChild(img);
+      fig.appendChild(cap);
+      return fig;
+    }
+
+    ba.appendChild(makeFigure(p.sourceImage, p.id + ' source', 'Source (as uploaded)'));
+    ba.appendChild(makeFigure(p.cleanImage, p.id + ' cleaned', 'Standardized (simulated cleanup)'));
+    card.appendChild(ba);
+
+    // Trust badges
+    const badgesDiv = document.createElement('div');
+    badgesDiv.className = 'badges';
+    for (const badge of (p.trustBadges || [])) {
+      const span = document.createElement('span');
+      span.textContent = badge;
+      badgesDiv.appendChild(span);
+    }
+    card.appendChild(badgesDiv);
+
+    // Price
+    const priceDiv = document.createElement('div');
+    priceDiv.className = 'price';
+    if (p.priceText) {
+      priceDiv.appendChild(document.createTextNode(p.priceText));
+    }
+    if (p.regularPriceText) {
+      const s = document.createElement('s');
+      s.textContent = p.regularPriceText;
+      priceDiv.appendChild(s);
+    }
+    card.appendChild(priceDiv);
+
+    // Storyboard
+    const storyDiv = document.createElement('div');
+    storyDiv.className = 'story';
+    for (const s of (p.storyboard || [])) {
+      const scene = document.createElement('div');
+      scene.className = 'scene';
+
+      const label = document.createElement('b');
+      label.textContent = 'Scene ' + s.scene + ' — ' + s.note;
+      scene.appendChild(label);
+
+      if (s.headline) {
+        const hl = document.createElement('div');
+        hl.textContent = s.headline;
+        scene.appendChild(hl);
+      }
+      if (s.price) {
+        const pr = document.createElement('div');
+        pr.className = 'price';
+        pr.textContent = s.price;
+        scene.appendChild(pr);
+      }
+      if (s.cta) {
+        const ctaDiv = document.createElement('div');
+        if (s.brand) {
+          ctaDiv.textContent = s.brand + ' · ' + s.cta;
+        } else {
+          ctaDiv.textContent = s.cta;
+        }
+        scene.appendChild(ctaDiv);
+      }
+
+      storyDiv.appendChild(scene);
+    }
+    card.appendChild(storyDiv);
+
+    gallery.appendChild(card);
+  }
+</script>
+</body>
+</html>
